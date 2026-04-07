@@ -44,8 +44,8 @@ function TiltCard({ children, className = "" }) {
 function ProjectCard({ project, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
-  const { github, live } = project.links || {};
-  const isComing = !github && !live;
+  const { github, live, tryhackme } = project.links || {};
+  const isComing = !github && !live && !tryhackme;
 
   return (
     <motion.div
@@ -166,6 +166,27 @@ function ProjectCard({ project, index }) {
                   style={{ color: "var(--text-muted)" }}
                 >
                   <Github size={11} /> Code
+                </a>
+              ) : null}
+
+              {tryhackme ? (
+                <a
+                  href={tryhackme}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:opacity-60 transition-opacity t-mono"
+                  style={{ color: "#88cc14" }}
+                  aria-label="TryHackMe Profile"
+                >
+                  {/* TryHackMe official logo */}
+                  <svg width="12" height="12" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="25" cy="25" r="25" fill="#88cc14"/>
+                    <path d="M25 8C20.6 8 17 11.6 17 16c0 1.4.4 2.7 1 3.9C12.9 21.3 10 24.8 10 29c0 5 4 9 9 9h12c5 0 9-4 9-9 0-4.2-2.9-7.7-6.9-8.6.6-1.1 1-2.4 1-3.9C34 11.6 30.4 8 25 8z" fill="white"/>
+                    <circle cx="21" cy="26" r="2" fill="#88cc14"/>
+                    <circle cx="29" cy="26" r="2" fill="#88cc14"/>
+                    <path d="M21 32c0 0 1.5 3 4 3s4-3 4-3" stroke="#88cc14" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+                  </svg>
+                  TryHackMe
                 </a>
               ) : null}
 

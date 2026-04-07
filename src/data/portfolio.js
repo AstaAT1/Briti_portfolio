@@ -166,7 +166,7 @@ export const portfolio = {
       
       stack: ["Linux", "Networking", "Burp Suite", "Web Security", "CTF"],
       links: {
-        github: "https://github.com/0xm7d",
+        tryhackme: "https://tryhackme.com/p/0xm7d",
         live: "",
       },
       funFact:
